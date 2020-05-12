@@ -11,50 +11,45 @@
 }
 
 .backgroundImg {
-    position: relative;
     width: 100%;
     height: 100vh;
 }
 
 #fern {
-    position: relative;
-    top: 0;
-    left: 0;
     padding: 15px;
 }
 
-.background::after {
+.backgroundColor {
     position: absolute;
-    display: block;
-    content: "";
     background: bisque;
-    padding: 15px;
     margin: 15px;
     width: 100%;
+    height: 100vh;
     top: 0;
     right: 0;
-    bottom: 0;
     clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%);
     -webkit-clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%);
 }
 
 .backgroundText {
     position: absolute;
-    top: 250px;
-    right: 15%;
-    height: 150px;
-    width: 250px;
+    top: 45%;
+    left: 0;
+    width: 93%;
     z-index: 10;
+    text-align: center;
+    color: white;
+    overflow: hidden;
 }
 
 .perksOf {
     font-family: 'Playfair Display SC', serif;
-    font-size: 40px;
+    font-size: 60px;
 }
 
 .wellness{
     font-family: 'Great Vibes', cursive;
-    font-size: 6vw;
+    font-size: 100px;
     transform: translateX(90px) translateY(-20px);
 }
 
