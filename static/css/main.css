@@ -24,7 +24,7 @@
     background: bisque;
     margin: 15px;
     width: 100%;
-    height: 100vh;
+    bottom: 0;
     top: 0;
     right: 0;
     clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%);
@@ -33,23 +33,82 @@
 
 .backgroundText {
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 0;
     width: 93%;
     z-index: 10;
     text-align: center;
     color: white;
     overflow: hidden;
+    text-shadow: 2px 2px 2px rgb(0,0,0);
+    font-family: 'Playfair Display SC', serif;
 }
 
-.perksOf {
-    font-family: 'Playfair Display SC', serif;
+.the {
+    font-size: 30px;
+    transform: translateX(-45px) translateY(35px);
+}
+
+.perks {
     font-size: 60px;
+}
+
+.of {
+    font-size: 30px;
+    transform: translate(-15px, -9px);
+    display: inline-block;
 }
 
 .wellness{
     font-family: 'Great Vibes', cursive;
     font-size: 100px;
-    transform: translateX(90px) translateY(-20px);
+    transform: translate(90px, -20px);
 }
 
+
+/********************************************************************/
+
+
+/* Extra small devices */
+@media only screen and (max-width: 600px) {
+    #fern {
+        object-fit: cover;
+    }
+
+    .the {
+        font-size: 15px;
+        transform: translateX(-25px) translateY(17px);
+    }
+
+    .perks {
+        font-size: 30px;
+    }
+
+    .of {
+        font-size: 15px;
+        transform: translate(-5px, -5px);
+    }
+
+    .wellness {
+        font-size: 50px;
+        transform: translate(50px, -14px);
+    }
+}
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/*@media only screen and (min-width: 600px) {
+
+}
+*/
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+
+}
+*/
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/*@media only screen and (min-width: 1200px) {
+
+}
+*/
