@@ -17,10 +17,18 @@ class FoodBlogPost(models.Model):
     def __str__(self):
         return self.title
 
+    def children_display(self):
+        return "\n".join([
+            f'Image: { child.image}' for child in self.foodimage_set.all()
+        ])
+    children_display.short_description = "Images"
+
 
 class FoodImage(models.Model):
     post = models.ForeignKey(FoodBlogPost, default=None, on_delete=models.SET_DEFAULT)
     image = models.ImageField(upload_to='images', verbose_name='Image')
+
+
 
 
 class FoodComment(models.Model):

@@ -10,14 +10,16 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display+SC:ital@1&display=swap" rel="stylesheet">
     <!-- Internal CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{% static './css/navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static './css/main.css' %}">
 </head>
 <body>
-    <!-- include navbar -->
+    {% include 'navbar.html' %}
     <div class="container-fluid main">
         {% block content %}{% endblock %}
     </div>
+
+    <script src="{% static 'javascript/main.js' %}"></script>
 
 </body>
 </html>

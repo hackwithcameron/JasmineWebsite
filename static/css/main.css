@@ -67,9 +67,7 @@
 }
 
 /****************************** FOOD ********************************/
-.postContainer {
-    background-color: #f1f1f1;
-}
+
 
 
 .postBox {
@@ -84,6 +82,7 @@
     max-width: 525px;
     background-position: center;
     float: right;
+    image-orientation: from-image;
 }
 
 .postTextBox {
