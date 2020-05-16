@@ -8,7 +8,7 @@
                     <div class="card">
                         <h1>{% block title %} {{ blog.title }} {% endblock title %}</h1>
                         <div class="card-header">
-                            <img height="50%" width="100%" src="{{ blog.cover_image.url }}">
+                            <img height="500px" width="960px" src="{{ blog.cover_image.url }}">
                         </div>
                         <div class="card-body">
                             {% for section, image in post %}
@@ -17,8 +17,6 @@
                                 {% endif %}
                                 {% if image.image %}
                                     <img height="500px" width="400px" src="{{ image.image.url }}" alt="something else">
-                                {% else %}
-                                    <p></p>
                                 {% endif %}
                             {% endfor %}
                         </div>

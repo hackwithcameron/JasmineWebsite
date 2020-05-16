@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.views import generic
 from .models import *
+from itertools import cycle
 
 
 class FoodPostList(generic.ListView):
@@ -19,7 +20,7 @@ def food_detail(request, pk):
     blog = get_object_or_404(FoodBlogPost, pk=pk)
     images = get_list_or_404(blog.foodimage_set)
     sections = get_list_or_404(blog.foodpost_set)
-    post = zip(sections, images)
+    post = zip(sections, cycle(images)) if len(sections) > len(images) else zip(cycle(sections), images)
 
     context = {
         'blog': blog,

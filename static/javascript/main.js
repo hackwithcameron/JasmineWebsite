@@ -17,5 +17,5 @@ function getBackground() {
     }
 }
 
-document.addEventListener("load", getBackground());
+docReady(getBackground());
 
