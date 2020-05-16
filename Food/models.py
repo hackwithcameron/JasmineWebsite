@@ -6,7 +6,6 @@ class FoodBlogPost(models.Model):
     title = models.CharField(max_length=200, unique=True)
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField()
-    post = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
     posts = models.Manager()
@@ -17,18 +16,33 @@ class FoodBlogPost(models.Model):
     def __str__(self):
         return self.title
 
-    def children_display(self):
+    def images(self):
         return "\n".join([
             f'Image: { child.image}' for child in self.foodimage_set.all()
         ])
-    children_display.short_description = "Images"
+    images.short_description = "Images"
+
+    def sections(self):
+        return "\n".join([
+            f'{ child.section }' for child in self.foodpost_set.all()
+        ])
+    sections.short_description = "Sections"
 
 
 class FoodImage(models.Model):
     post = models.ForeignKey(FoodBlogPost, default=None, on_delete=models.SET_DEFAULT)
     image = models.ImageField(upload_to='images', verbose_name='Image')
 
+    def __str__(self):
+        return self.post.title
 
+
+class FoodPost(models.Model):
+    post = models.ForeignKey(FoodBlogPost, default=None, on_delete=models.SET_DEFAULT)
+    section = models.TextField()
+
+    def __str__(self):
+        return self.post.title
 
 
 class FoodComment(models.Model):

@@ -2,16 +2,29 @@
 {% load static %}
 {% block content %}
     <section>
-        <div class="container-fluid">
+        <div class="container-fluid justify-content-center">
             <div class="row">
-                <div class="col-md-8 card mb-4 mt-3 left top">
-                    <div class="card-body">
-                        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-                        <p class=" text-muted">Update: {{ post.updated_on }} | {{ post.created_on }}</p>
-                        <p class="card-text ">{{ post.post | safe }}</p>
-                        {% for image in images %}
-                            <img height="500px" width="400px" src="{{ image.image.url }}">
-                        {% endfor %}
+                <div class="col-12 card mb-4 mt-3 left top">
+                    <div class="card">
+                        <h1>{% block title %} {{ blog.title }} {% endblock title %}</h1>
+                        <div class="card-header">
+                            <img height="50%" width="100%" src="{{ blog.cover_image.url }}">
+                        </div>
+                        <div class="card-body">
+                            {% for section, image in post %}
+                                {% if section.section %}
+                                    <p class="card-text ">{{ section.section | safe }}</p>
+                                {% endif %}
+                                {% if image.image %}
+                                    <img height="500px" width="400px" src="{{ image.image.url }}" alt="something else">
+                                {% else %}
+                                    <p></p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="card-footer">
+                            <p class=" text-muted">{{ blog.created_on }} | Update: {{ blog.updated_on }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
