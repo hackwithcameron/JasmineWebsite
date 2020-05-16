@@ -5,9 +5,11 @@
 **/
 
 
-*, .main{
+.container-fluid{
     margin: 0;
     padding: 0;
+    height: 100vh;
+    margin-top: 30px;
 }
 
 .backgroundImg {
@@ -63,6 +65,46 @@
     font-family: 'Great Vibes', cursive;
     font-size: 100px;
     transform: translate(90px, -20px);
+}
+
+/****************************** FOOD ********************************/
+
+
+
+.postBox {
+    width: 80%;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.postCoverImage {
+    background-size: cover;
+    max-height: 625px;
+    max-width: 525px;
+    background-position: center;
+    float: right;
+    image-orientation: from-image;
+}
+
+.postTextBox {
+    display: flex;
+    align-items: center;
+}
+
+.postText {
+    max-width: 500px;
+}
+
+
+
+.postTitle {
+    width: 100%;
+}
+
+.postUpdate {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 

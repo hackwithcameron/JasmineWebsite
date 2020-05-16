@@ -1,18 +1,19 @@
 <section>
-    <nav class="navbar">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Food</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Travel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Beauty</a>
-            </li>
-        </ul>
+    <nav class="navbar sticky-top">
+        <div class="navbarBackground">
+            <div class="navbarContainer">
+                <div class="navLeft navBox">
+                    <a class="nav-link active" href="#">Travel <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'food_index' %}">Food</a>
+                </div>
+                <div class="navCenter navBox">
+                    <a class="navbar-brand" href="#">Home Logo</a>
+                </div>
+                <div class="navRight navBox">
+                    <a class="nav-link" href="#">Shop</a>
+                    <a class="nav-link" href="#">Contect</a>
+                </div>
+            </div>
+        </div>
     </nav>
 </section>

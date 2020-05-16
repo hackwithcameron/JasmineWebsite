@@ -3,6 +3,38 @@
 {% block title %}Delicious{% endblock %}
 {% block content %}
     <section>
-        Food Page
+        <div class="container-fluid">
+            {% if object_list %}
+                {% for post in object_list %}
+                    <div class="postContainer" id="{{ post.pk }}">
+                        <div class="postBox row">
+                            <div class="postCoverContainer  col-6">
+                                {% if post.cover_image %}
+                                    <img class="postCoverImage" src="{{ post.cover_image.url }}" alt="this pic dough">
+                                {% endif %}
+                            </div>
+                            <div class="postTextBox col-6">
+                                <div class="postText">
+                                    <h1 class="postTitle">{{ post.title }}</h1>
+                                    <p class="description">{{ post.description }}</p>
+                                    <div class="postInfo">
+                                        <h6>Created on: {{ post.created_on }}</h6>
+                                        <a href="{{post.pk}}/details" class="btn btn-primary">READ >></a>
+                                        {% if post.created_on|date:"DATE_TIME_FORMAT" != post.updated_on|date:"DATE_TIME_FORMAT" %}
+                                            <p class="postUpdate">Post Updated: {{ post.updated_on }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="jumbotron justify-content-center">
+                    <h1 class="display-4">No Posts</h1>
+                </div>
+            {% endif %}
+
+        </div>
     </section>
 {% endblock %}
