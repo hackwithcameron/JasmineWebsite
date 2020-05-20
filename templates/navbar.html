@@ -1,13 +1,14 @@
+{% load static %}
 <section>
     <nav class="navbar sticky-top">
         <div class="navbarBackground">
             <div class="navbarContainer">
                 <div class="navLeft navBox">
                     <a class="nav-link active" href="#">Travel <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="{% url 'food_index' %}">Food</a>
+                    <a class="nav-link" href="{% url 'food:index' %}">Food</a>
                 </div>
                 <div class="navCenter navBox">
-                    <a class="navbar-brand" href="#">Home Logo</a>
+                    <a class="navbar-brand" href="{% url 'index' %}"><img class="navLogo" src="{% static '/images/logo.png' %}" alt="Nav Logo"></a>
                 </div>
                 <div class="navRight navBox">
                     <a class="nav-link" href="#">Shop</a>

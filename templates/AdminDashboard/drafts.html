@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Drafts{% endblock %}
+{% block content %}
+<div>{% include 'AdminDashboard/admin_navbar.html' %}</div>
+<section>
+    <div class="draftTableContainer">
+        <h1>Drafts</h1>
+        <table class="draftTable">
+            <tr>
+                <th>Title</th>
+                <th>Published</th>
+            </tr>
+            {% for blog in blogs %}
+                <tr>
+                    <td>{{ blog.title }}</td>
+                    <td>{{ blog.published }}</td>
+                    <td><a href="{% url 'admindashboard:new_post' pk=blog.pk %}"><button class="btn">Edit</button></a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endblock %}

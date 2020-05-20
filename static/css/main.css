@@ -8,8 +8,7 @@
 .container-fluid{
     margin: 0;
     padding: 0;
-    height: 100vh;
-    margin-top: 30px;
+    height: 100%;
 }
 
 section {
@@ -140,6 +139,42 @@ section {
         transform: translate(50px, -14px);
     }
 }
+
+/****************************** ADMIN DASHBOARD ********************************/
+
+.adminNavbarContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcomeTextContainer {
+    display: flex;
+    height: max-content;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.designContainer {
+    margin-left: 25%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 
 
 /****************************** LOGIN ********************************/
