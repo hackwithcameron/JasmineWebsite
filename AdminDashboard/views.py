@@ -1,15 +1,15 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from Food.models import FoodBlogPost, FoodImage, FoodPost
-from Food.forms import FoodBlogForm, FoodPostForm, FoodImageForm
+from .models import BlogPost, Image, Post
+from .forms import BlogForm, PostForm, ImageForm
 
 
 @login_required(login_url='/accounts/login/')
 def admin_index(request):
     user = request.user.get_username()
     if request.method == 'POST' and 'new_post' in request.POST:
-        blog_form = FoodBlogForm(request.POST or None)
+        blog_form = BlogForm(request.POST or None)
         if blog_form.is_valid():
             blog_form.save()
             pk = blog_form.pk
@@ -17,7 +17,7 @@ def admin_index(request):
             return render(request, 'AdminDashboard/new_post.html', context)
     else:
         print('2')
-        blog_form = FoodBlogForm()
+        blog_form = BlogForm()
     context = {
         'user': user,
         'blog': blog_form,
@@ -28,11 +28,11 @@ def admin_index(request):
 @login_required
 def new_post(request, pk):
     pk = int(pk)
-    blog = get_object_or_404(FoodBlogPost, pk=pk)
-    text = get_list_or_404(FoodPost, post=blog)
-    food = get_list_or_404(FoodImage, post=blog)
-    text_form = FoodPostForm(request.POST or None)
-    img_form = FoodImageForm(request.POST or None)
+    blog = get_object_or_404(BlogPost, pk=pk)
+    text = get_list_or_404(Post, post=blog)
+    food = get_list_or_404(Image, post=blog)
+    text_form = PostForm(request.POST or None)
+    img_form = ImageForm(request.POST or None)
     context = {
         'blog': blog,
         'text_form': text_form,
@@ -45,7 +45,7 @@ def new_post(request, pk):
 
 @login_required
 def drafts(request):
-    blogs = FoodBlogPost.posts.all().filter(published=False)
+    blogs = BlogPost.posts.all().filter(published=False)
     context = {
         'blogs': blogs
     }
