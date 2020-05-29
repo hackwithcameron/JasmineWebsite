@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Delicious{% endblock %}
+{% block content %}
+    <section>
+    <div class="loginContainer row">
+        <div class="loginBox col-md-6">
+            <div class="loginHeader">
+                {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+
+                {% if next %}
+                    {% if user.is_authenticated %}
+                        <p>Your account doesn't have access to this page. To proceed,
+                            please login with an account that has access.</p>
+                    {% else %}
+                        <h3>Please login.</h3>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <table class="loginForm">
+                    <tr>
+                        <td>{{ form.username.label_tag }}</td>
+                        <td class="formInput">{{ form.username }}</td>
+                    </tr>
+                    <!-- tableRow adds space to form inputs -->
+                    <tr class="tableRow"></tr>
+                    <tr class="">
+                        <td>{{ form.password.label_tag }}</td>
+                        <td class="formInput">{{ form.password }}</td>
+                    </tr>
+                </table>
+
+                <input class="btn btn-primary loginBtnSubmit" type="submit" value="login">
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
+
+            {# Assumes you setup the password_reset view in your URLconf #}
+            <div class="loginNavBtns">
+                <p><a class="forgotPassword" href="{% url 'password_reset' %}">Lost password?</a></p>
+                <p><a class="backHome" href="{% url 'index' %}">Back home</a></p>
+            </div>
+        </div>
+    </div>
+    </section>
+{% endblock %}

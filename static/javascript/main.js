@@ -1,4 +1,21 @@
 
+/******************* ADMIN DASHBOARD *******************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************* FOOD *******************/
 function getBackground() {
     let backGround = document.getElementsByClassName("postContainer");
     for (let i = 0; i < backGround.length; i++) {
