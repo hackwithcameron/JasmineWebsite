@@ -59,3 +59,13 @@
     </section>
 
 {% endblock %}
+
+<!-- Page Specific JavaScript -->
+
+{% block javascript %}
+    <script>
+        $("#id_username").change(function () {
+            console.log( $(this).val() );
+        });
+    </script>
+{% endblock %}

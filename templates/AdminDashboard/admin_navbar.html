@@ -60,7 +60,7 @@
                 <div class="modal-body">
                     <form method="POST">
                         {% csrf_token %}
-                        {{ blog.as_p }}
+                        {{ new_blog_post.as_p }}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" value="submit" name="new_post" class="btn btn-primary">Create Post</button>
